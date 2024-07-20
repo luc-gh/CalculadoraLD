@@ -1,0 +1,179 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: consolas;
+}
+body{
+  display: flex;
+  justify-content: center;
+  align-itens: center;
+  min-height: 70vh;
+  background: #edf1f4;
+  padding: 10%;
+}
+.dark{  /*--- modo escuro ---*/
+  background: #282c2f;
+}
+.calc{
+  position: relative;
+  width: 340px;
+  padding: 20px;  /*margem dos itens*/
+  box-shadow: 15px 15px 20px rgba(0,0,0,0.1), -15px -15px 20px #dddb;
+  border-radius: 20px;
+}
+.dark .calc{  /*--- modo escuro ---*/
+  background: #32353f;
+  box-shadow: 15px 15px 20px rgba(0,0,0,0.25), -15px -15px 20px rgba(255,255,255,0.1);
+}
+.calc .botao{
+  position: relative;
+  display: grid;
+}
+.calc .botao #valor{
+  position: relative;
+  grid-column: span 4; /*dispõe item em coluna*/
+  user-select: none;
+  overflow: none;
+  width: 100%;
+  text-align: end;
+  color: #eb252a;
+  height: 80px; /*altura inferior*/
+  line-height: 80px;  /*altura de margem superior*/
+  box-shadow: inset 5px 5px 10px rgba(0,0,0,0.1), inset -5px -5px 20px #e9e9e9;
+  border-radius: 10x;
+  margin-bottom: 12px; /*margem para itens externos abaixo*/
+  padding: 0 20px; /*margem interna esq-dir*/
+  font-size: 1.7em;
+  font-weight: 500; /*deixa fonte fina*/
+}
+.dark .calc .botao #valor{  /*--- modo escuro ---*/
+  background: #32353f;
+  color: #fe6f21;
+  box-shadow: inset 15px 15px 20px rgba(0,0,0,0.1), inset -15px -15px 20px rgba(0,0,0,0.11);
+}
+.calc .botao span{
+  position: relative;
+  padding: 10px;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.1), -5px -5px 20px #e9e9e9;
+  margin: 8px;  /*tamanho dos botões*/
+  cursor: pointer;
+  user-select: none;
+  min-width: 40px;
+  display: flex;
+  justify-content: center;
+  align-itens: center;
+  font-size: 1.1em;
+  color: #555;
+  border: 2px solid #dde1e4;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.1), -5px -5px 20px #fff;
+  border-radius: 10px;
+  transition: 0.4s;
+}
+.dark .calc .botao span{  /*--- modo escuro ---*/
+  color: #fff;
+  border: 2px solid #666;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.25), -5px -5px 20px rgba(255,255,255,0.1);
+}
+.calc .botao span:hover{
+  background: #e1e1e1;
+}
+.dark .calc .botao span:hover{  /*--- modo escuro ---*/
+  background: #232323;
+}
+.calc .botao span:active{
+  box-shadow: inset 5px 5px 10px rgba(0,0,0,0.1), inset -5px -5px 20px #fff;
+  color: #25a8f1;
+}
+.dark .calc .botao span:active{   /*--- modo escuro ---*/
+  box-shadow: inset 5px 5px 10px rgba(0,0,0,0.25), inset -5px -5px 20px #414141;
+  color: #219ffe;
+}
+
+.calc .botao span#clear{
+  grid-column: span 2;
+  background: #f54332;
+  color: #fff;
+  border: 2px solid #dde1e4; 
+}
+.calc .botao span#mais{
+  grid-row: span 2;
+  background: #25df55;
+  color: #000;
+  padding: 50% 0;  /*centraliza '+' verticalmente*/
+  border: 2px solid #dde1e4;
+}
+.calc .botao span#igual{
+  grid-row: span 2;
+  background: #f1dd31;
+  color: #000;
+  border: 2px solid #dde1e4;
+}
+/*mouse sobre o botão*/
+.calc .botao span#clear:hover{
+  background: #f00;
+}
+.calc .botao span#mais:hover{
+  background: #00cf22;
+}
+.calc .botao span#igual:hover{
+  background: #f1cc31;
+}
+
+/*--------------- modo escuro -----------------*/
+.dark .calc .botao span#clear{
+  background: #f5062299;  /*os últimos 2 algarismos referem-se à saturação*/
+  color: #000;
+  border: 2px solid #2a2829; 
+}
+.dark .calc .botao span#mais{
+  background: #25df5388;
+  color: #fff;
+  border: 2px solid #242a21;
+}
+.dark .calc .botao span#igual{
+  background: #e1ad0077;
+  color: #fff;
+  border: 2px solid #242a21;
+}
+/*-------- dark hover --------*/
+.dark .calc .botao span#clear:hover{
+  background: #f009;
+}
+.dark .calc .botao span#mais:hover{
+  background: #00df2299;
+}
+.dark .calc .botao span#igual:hover{
+  background: #f1bb2199;
+}
+
+.calc .botao span#clear:active,
+.calc .botao span#mais:active,
+.calc .botao span#igual:active{
+  box-shadow: inset 5px 5px 10px rgba(0,0,0,0.1), inset -5px -5px 20px rgba(0,0,0,0.05);
+  color: #11227f;
+}
+.dark .calc .botao span#clear:active,
+.dark .calc .botao span#mais:active,
+.dark .calc .botao span#igual:active{
+  box-shadow: inset 5px 5px 10px rgba(0,0,0,0.25), inset -5px -5px 20px rgba(255,255,255,0.05);
+  color: #11c5fe;
+}
+
+.modo{
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: #555;
+  cursor: pointer;
+  border: 2px solid #3d4e3f;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.2), -5px -5px 20px #fff;
+}
+.dark .modo{
+  background: #ddd;
+  border: 2px solid #aeafa9;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.3), -5px -5px 20px #393939;
+}
